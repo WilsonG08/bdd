@@ -1,0 +1,9 @@
+-- tabla videojuegos
+
+create table videojuegos(
+	codigo int not null,
+	nombre varchar(100) not null,
+	descripcion varchar(300),
+	valor int not null,
+	constraint videojuegos_pk primary key (codigo)
+)
