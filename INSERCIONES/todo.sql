@@ -98,3 +98,22 @@ where cedula like '12%'
 -----------
 -- PARA VER LO NULL 
 select  * from personas where hora_nacimiento is null
+
+
+
+
+------ PARA AND o OR
+select * from personas
+where nombre = 'Maria' and apellido = 'Jose'
+
+
+-- PARA OR
+select * from personas
+where nombre = 'Ismael' or nombre = 'Karla' or nombre = 'Maria'
+
+
+-- PERSONAS QUE SE LLAMEN Maria o Giss CON fecha_nacimiento NUL o estatura >1.50
+select * from personas
+where (nombre = 'Maria' or nombre = 'Giss')
+and fecha_nacimiento is null
+
