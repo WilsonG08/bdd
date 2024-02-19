@@ -10,4 +10,10 @@ WHERE fecha_creacion
 BETWEEN '2023-02-16' AND '2024-02-16';
 
 
+-- SELECCIONAR LAS CUENTAS CON SALDO 0 O CON UNA CEDULA DE PROPIETARIO QUE TERMINE CON 2
+SELECT * FROM cuentas
+WHERE saldo = money(0) or cedula_propietario like '%2'
+
+
+
 
