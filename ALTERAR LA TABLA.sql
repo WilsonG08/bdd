@@ -1,6 +1,9 @@
 select * from personas
 
 delete from personas
+DROP TABLE personas
+DROP TABLE estado_civil
+DROP TABLE PRESTAMO
 
 -- ALTERAR LA TABLA
 alter table personas

@@ -95,8 +95,10 @@ CREATE TABLE productos (
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(300),
     valoracion INT NOT NULL,
+    precio int, 
     CONSTRAINT productos_pk PRIMARY KEY(codigo)
 );
+
 
 CREATE TABLE ventas (
     id_venta INT,
@@ -206,11 +208,11 @@ VALUES
 (5, 'Ana');
 
 -- Personas
-INSERT INTO personas (cedula, nombre, apellido, estatura, fecha_nacimiento, hora_nacimiento, cantidad_ahorrada, numero_hijos)
+INSERT INTO personas (cedula, nombre, apellido, estatura, fecha_nacimiento, hora_nacimiento, cantidad_ahorrada, numero_hijos,estado_civil_codigo)
 VALUES
-('1755014238', 'Juan', 'Rodriguez', 1.70, '1990-05-15', '08:30', 5000.00, 2),
-('1755014239', 'Maria', 'Gonzalez', 1.65, '1985-10-20', '10:45', 7000.00, 1),
-('1755014240', 'Pedro', 'Lopez', 1.75, '1978-02-28', '12:15', 10000.00, 3);
+('1755014238', 'Juan', 'Rodriguez', 1.70, '1990-05-15', '08:30', 5000.00, 2, 'C')
+('1755014239', 'Maria', 'Gonzalez', 1.65, '1985-10-20', '10:45', 7000.00, 1, 'S'),
+('1755014240', 'Pedro', 'Lopez', 1.75, '1978-02-28', '12:15', 10000.00, 3, 'U');
 
 -- Prestamo
 INSERT INTO prestamo (cedula, monto, fecha_prestamo, hora_prestamo, garante)
@@ -218,13 +220,14 @@ VALUES
 ('1755014238', 1000.00, '2023-07-10', '08:00', 'María');
 
 -- Productos
-INSERT INTO productos (codigo, nombre, descripcion, valoracion)
+INSERT INTO productos (codigo, nombre, descripcion, valoracion, precio)
 VALUES
-(1, 'Producto A', 'Descripción del Producto A', 8),
-(2, 'Producto B', 'Descripción del Producto B', 7),
-(3, 'Producto C', 'Descripción del Producto C', 9),
-(4, 'Producto D', 'Descripción del Producto D', 6),
-(5, 'Producto E', 'Descripción del Producto E', 8);
+(1, 'Producto A', 'Descripción del Producto A', 8, 1000),
+(2, 'Producto B', 'Descripción del Producto B', 7, 2000),
+(3, 'Producto C', 'Descripción del Producto C', 9, 1500),
+(4, 'Producto D', 'Descripción del Producto D', 6, 2500),
+(5, 'Producto E', 'Descripción del Producto E', 8, 3000);
+
 
 -- Ventas
 INSERT INTO ventas (id_venta, codigo_producto, fecha_venta, cantidad)
@@ -238,11 +241,11 @@ VALUES
 -- Transacciones
 INSERT INTO transacciones (codigo, numero_cuenta, monto, tipo, fecha, hora)
 VALUES
-(1, '22111', 50.00, 'D', '2024-05-20', '10:30'),
-(2, '22678', 100.00, 'D', '2024-05-21', '11:45'),
-(3, '22111', 30.00, 'D', '2024-05-25', '09:15'),
-(4, '22678', 70.00, 'D', '2024-05-28', '08:00'),
-(5, '22111', 25.00, 'D', '2024-06-01', '12:30');
+(1, '22111', 50.00, 'C', '2024-05-20', '10:30'),
+(2, '22678', 100.00, 'A', '2024-05-21', '11:45'),
+(3, '22111', 30.00, 'B', '2024-05-25', '09:15'),
+(4, '22678', 70.00, 'C', '2024-05-28', '08:00'),
+(5, '22111', 25.00, 'C', '2024-06-01', '12:30');
 
 -- Banco
 INSERT INTO banco (codigo_banco, codigo_transaccion, detalle)
